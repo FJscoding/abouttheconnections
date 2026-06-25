@@ -1,24 +1,20 @@
 <script>
   let { data } = $props();
-  const Content = data.content;
 </script>
 
 <svelte:head>
   <title>{data.meta.title} — На связи детский психолог</title>
   <meta name="description" content={data.meta.description} />
-  <!-- Динамические мета-теги Open Graph для красивых репостов в Telegram/Facebook -->
   <meta property="og:title" content={data.meta.title} />
   <meta property="og:description" content={data.meta.description} />
   <meta property="og:type" content="article" />
 </svelte:head>
 
 <article class="max-w-2xl mx-auto px-6 py-16">
-  <!-- Хлебные крошки -->
   <div class="mb-8">
     <a href="/blog" class="text-xs text-neutral-400 hover:text-neutral-600 transition-colors">← Назад в блог</a>
   </div>
 
-  <!-- Шапка статьи -->
   <header class="mb-12 border-b border-neutral-100 pb-8">
     <div class="flex items-center gap-4 mb-4">
       <span class="bg-neutral-100 text-neutral-800 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
@@ -38,18 +34,18 @@
     </p>
   </header>
 
-  <!-- Тело статьи на Markdown (с увеличенным межстрочным интервалом для комфортного чтения длинных текстов) -->
   <div class="prose prose-neutral max-w-none text-neutral-800 leading-relaxed text-base space-y-6">
+    <!-- Безопасное объявление компонента без вызова ошибки компилятора -->
+    {@const Content = data.content}
     <Content />
   </div>
 
-  <!-- Мягкий CTA блок в конце статьи (Согласно ТЗ) -->
   <div class="mt-16 bg-neutral-50 border border-neutral-150 rounded-2xl p-8 text-center hover:scale-[1.01] transition-transform duration-300">
     <h3 class="font-bold text-neutral-900 text-lg mb-2">Остались вопросы по теме?</h3>
     <p class="text-neutral-500 text-sm mb-6 max-w-md mx-auto">
       Каждая ситуация уникальна. Вы всегда можете написать мне напрямую в Telegram, задать анонимный вопрос или записаться на глубокую разбор-консультацию.
     </p>
-    <a href="[https://t.me/connections_psychologist](https://t.me/connections_psychologist)" target="_blank"
+    <a href="https://t.me/connections_psychologist" target="_blank"
        class="inline-flex items-center justify-center bg-neutral-950 text-white px-6 py-3 rounded-xl font-medium text-xs hover:bg-neutral-800 hover:scale-105 transition-all duration-300">
       Написать в Telegram
     </a>
@@ -57,7 +53,6 @@
 </article>
 
 <style>
-  /* Стилизация заголовков и цитат в тексте статьи */
   :global(.prose h3) {
     font-size: 1.25rem;
     font-weight: 700;

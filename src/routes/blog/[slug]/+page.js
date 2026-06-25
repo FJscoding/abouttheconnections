@@ -1,7 +1,7 @@
 import { error } from '@sveltejs/kit';
 import { getPosts } from '$lib/posts.js';
 
-// Эта функция сообщает Vercel список всех страниц статей во время сборки
+// Эта функция находит все статьи для генерации страниц
 export async function entries() {
     const posts = await getPosts();
     return posts.map(post => ({ slug: post.slug }));

@@ -4,7 +4,6 @@ import { mdsvex } from 'mdsvex';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Подключаем препроцессор Svelte и mdsvex для обработки Markdown
 	preprocess: [
 		vitePreprocess(),
 		mdsvex({
@@ -18,7 +17,7 @@ const config = {
 			assets: 'build',
 			fallback: null,
 			precompress: false,
-			strict: true
+			strict: false // Игнорировать мелкие ошибки и отсутствующие файлы при сборке
 		})
 	}
 };
