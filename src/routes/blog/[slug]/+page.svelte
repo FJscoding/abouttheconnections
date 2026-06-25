@@ -35,9 +35,7 @@
   </header>
 
   <div class="prose prose-neutral max-w-none text-neutral-800 leading-relaxed text-base space-y-6">
-    <!-- Безопасное объявление компонента без вызова ошибки компилятора -->
-    {@const Content = data.content}
-    <Content />
+    <svelte:component this={data.content} />
   </div>
 
   <div class="mt-16 bg-neutral-50 border border-neutral-150 rounded-2xl p-8 text-center hover:scale-[1.01] transition-transform duration-300">
