@@ -1,22 +1,16 @@
 <script>
-  import { onMount } from 'svelte';
-  import { getPosts } from '$lib/posts.js';
-
-  let posts = $state([]);
+  // Принимаем данные со статьями, которые загрузились на этапе сборки из +page.js
+  let { data } = $props();
   let activeCategory = $state('Все');
 
-  // Категории из ТЗ
+  // Рубрики из ТЗ
   const categories = ['Все', 'Школа', 'Философия', 'Раннее детство', 'Истории из практики'];
-
-  onMount(async () => {
-    posts = await getPosts();
-  });
 
   // Фильтруем статьи на лету
   let filteredPosts = $derived(
     activeCategory === 'Все' 
-      ? posts 
-      : posts.filter(post => post.category === activeCategory)
+      ? data.posts 
+      : data.posts.filter(post => post.category === activeCategory)
   );
 </script>
 
@@ -25,7 +19,7 @@
   <meta name="description" content="Полезные статьи о детской психологии, раннем развитии и школьной адаптации от практикующего специалиста." />
 </svelte:head>
 
-<section class="max-w-5xl mx-auto px-6 py-16">
+<section class="max-w-5xl mx-auto px-6 py-16 animate-fade-in">
   <div class="max-w-xl mb-12">
     <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight text-neutral-900 mb-4">
       Полезные материалы

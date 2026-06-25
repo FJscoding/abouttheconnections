@@ -1,19 +1,22 @@
 import { error } from '@sveltejs/kit';
+import { getPosts } from '$lib/posts.js';
 
+// Эта функция сообщает Vercel список всех страниц статей во время сборки
+export async function entries() {
+    const posts = await getPosts();
+    return posts.map(post => ({ slug: post.slug }));
+}
+
+// Загрузчик конкретной статьи
 export async function load({ params }) {
-    // Безопасный поиск всех файлов Markdown через glob из папки src/posts
     const modules = import.meta.glob('../../../posts/*.md');
-    
-    // Формируем относительный путь к нужному файлу статьи
     const path = `../../../posts/${params.slug}.md`;
     
-    // Если такого файла не существует — отдаем красивую ошибку 404
     if (!modules[path]) {
         error(404, `Статья не найдена`);
     }
     
     try {
-        // Динамически загружаем только выбранную статью
         const post = await modules[path]();
         return {
             content: post.default,
