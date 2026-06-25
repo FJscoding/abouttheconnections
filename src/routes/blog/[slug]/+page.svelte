@@ -1,5 +1,6 @@
 <script>
   let { data } = $props();
+  const Content = data.content;
 </script>
 
 <svelte:head>
@@ -35,7 +36,7 @@
   </header>
 
   <div class="prose prose-neutral max-w-none text-neutral-800 leading-relaxed text-base space-y-6">
-    <svelte:component this={data.content} />
+    <Content />
   </div>
 
   <div class="mt-16 bg-neutral-50 border border-neutral-150 rounded-2xl p-8 text-center hover:scale-[1.01] transition-transform duration-300">
