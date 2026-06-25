@@ -1,0 +1,28 @@
+backend:
+  name: github
+  repo: FJscoding/abouttheconnections
+  branch: main
+
+media_folder: static/images
+public_folder: /images
+
+collections:
+  - name: posts
+    label: Статьи блога
+    folder: src/posts
+    create: true
+    slug: "{{slug}}"
+    extension: md
+    fields:
+      - { label: Заголовок, name: title, widget: string }
+      - { label: Описание, name: description, widget: text }
+      - { label: Дата, name: date, widget: datetime, format: YYYY-MM-DD }
+      - label: Категория
+        name: category
+        widget: select
+        options:
+          - Школа
+          - Философия
+          - Раннее детство
+          - Истории из практики
+      - { label: Текст статьи, name: body, widget: markdown } 
