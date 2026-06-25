@@ -18,7 +18,7 @@
       Глубокая психологическая помощь родителям детей от нескольких месяцев до юношества. Сопровождение в периоды кризисов, диагностика и коррекция развития.
     </p>
     <div class="pt-4 flex flex-col sm:flex-row gap-4">
-      <a href="[https://t.me/connections_psychologist](https://t.me/connections_psychologist)" target="_blank" 
+      <a href="https://t.me/AYeskov" target="_blank" 
          class="inline-flex items-center justify-center bg-neutral-950 text-white px-8 py-4 rounded-xl font-medium hover:bg-neutral-800 hover:scale-105 transition-all duration-300 text-center shadow-md">
         Записаться в Telegram
       </a>
@@ -34,7 +34,7 @@
     <div class="relative w-72 h-96 bg-neutral-50 border-2 border-neutral-150 rounded-2xl overflow-hidden shadow-inner flex flex-col items-center justify-center text-center p-6 hover:scale-105 transition-transform duration-500 group">
       <!-- Имитация рамки для фото -->
       <div class="absolute inset-4 border border-dashed border-neutral-300 rounded-lg flex flex-col items-center justify-center bg-white p-4">
-        <svg xmlns="[http://www.w3.org/2000/svg](http://www.w3.org/2000/svg)" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-16 h-16 text-neutral-300 mb-2 group-hover:scale-110 transition-transform duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-16 h-16 text-neutral-300 mb-2 group-hover:scale-110 transition-transform duration-300">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
         </svg>
         <span class="text-xs font-semibold text-neutral-400">ФОТО СПЕЦИАЛИСТА</span>
@@ -55,7 +55,6 @@
     </div>
     
     <div class="grid md:grid-cols-3 gap-8">
-      <!-- Направление 1 -->
       <div class="bg-white p-8 rounded-2xl border border-neutral-100 hover:scale-105 hover:shadow-lg transition-all duration-300">
         <div class="w-10 h-10 rounded-full bg-neutral-900 text-white flex items-center justify-center font-bold text-sm mb-6">01</div>
         <h3 class="text-lg font-bold text-neutral-900 mb-2">Особое детство</h3>
@@ -64,7 +63,6 @@
         </p>
       </div>
 
-      <!-- Направление 2 -->
       <div class="bg-white p-8 rounded-2xl border border-neutral-100 hover:scale-105 hover:shadow-lg transition-all duration-300">
         <div class="w-10 h-10 rounded-full bg-neutral-900 text-white flex items-center justify-center font-bold text-sm mb-6">02</div>
         <h3 class="text-lg font-bold text-neutral-900 mb-2">Раннее детство</h3>
@@ -73,7 +71,6 @@
         </p>
       </div>
 
-      <!-- Направление 3 -->
       <div class="bg-white p-8 rounded-2xl border border-neutral-100 hover:scale-105 hover:shadow-lg transition-all duration-300">
         <div class="w-10 h-10 rounded-full bg-neutral-900 text-white flex items-center justify-center font-bold text-sm mb-6">03</div>
         <h3 class="text-lg font-bold text-neutral-900 mb-2">Консультации родителей</h3>
@@ -85,7 +82,7 @@
   </div>
 </section>
 
-<!-- Секция 3: Жесткий фильтр СТОП-ТЕМЫ (Фильтруем трафик) -->
+<!-- Секция 3: СТОП-ТЕМЫ -->
 <section class="max-w-5xl mx-auto px-6 py-20">
   <div class="bg-neutral-950 text-white rounded-3xl p-8 md:p-12 grid md:grid-cols-12 gap-8 items-center transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl">
     <div class="md:col-span-5">
@@ -120,7 +117,7 @@
   </div>
 </section>
 
-<!-- Секция 4: Сетка анонимных отзывов -->
+<!-- Секция 4: Отзывы -->
 <section class="bg-neutral-50 py-20 border-t border-neutral-100 transition-all duration-300">
   <div class="max-w-5xl mx-auto px-6">
     <div class="text-center max-w-xl mx-auto mb-16">
@@ -146,7 +143,7 @@
   </div>
 </section>
 
-<!-- Секция 5: Дипломы и Сертификаты с эффектом увеличения -->
+<!-- Секция 5: Дипломы -->
 <section class="max-w-5xl mx-auto px-6 py-20">
   <div class="text-center max-w-xl mx-auto mb-16">
     <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-neutral-900 mb-2">Образование и квалификация</h2>
@@ -154,7 +151,6 @@
   </div>
   
   <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-    <!-- Диплом 1 -->
     <div class="bg-white border border-neutral-150 rounded-2xl p-6 text-center shadow-sm hover:scale-105 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-56 group">
       <div class="w-12 h-12 rounded-full bg-neutral-100 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
         🎓
@@ -166,7 +162,6 @@
       <div class="text-[10px] text-neutral-300 mt-4 border-t border-neutral-100 pt-2">Проверено экспертами</div>
     </div>
 
-    <!-- Диплом 2 -->
     <div class="bg-white border border-neutral-150 rounded-2xl p-6 text-center shadow-sm hover:scale-105 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-56 group">
       <div class="w-12 h-12 rounded-full bg-neutral-100 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
         🧸
@@ -178,7 +173,6 @@
       <div class="text-[10px] text-neutral-300 mt-4 border-t border-neutral-100 pt-2">Сертифицировано</div>
     </div>
 
-    <!-- Диплом 3 -->
     <div class="bg-white border border-neutral-150 rounded-2xl p-6 text-center shadow-sm hover:scale-105 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-56 group">
       <div class="w-12 h-12 rounded-full bg-neutral-100 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
         🤝
@@ -191,16 +185,3 @@
     </div>
   </div>
 </section>
-
-<!-- Секция 6: Скрытый пустой блок под будущий Аудио-подкаст (Согласно ТЗ) -->
-<!-- 
-<section class="bg-neutral-50 py-20 border-t border-neutral-100 text-center">
-  <div class="max-w-2xl mx-auto px-6">
-    <h2 class="text-xl font-bold mb-2 text-neutral-900">Подкаст «На связи детский психолог»</h2>
-    <p class="text-sm text-neutral-500 mb-6">Скоро на всех платформах запустим аудио-подкаст с ответами на самые частые вопросы родителей.</p>
-    <div class="bg-white rounded-2xl border border-neutral-200 p-8 shadow-inner flex items-center justify-center text-neutral-300">
-      Здесь будет плеер подкаста
-    </div>
-  </div>
-</section>
--->

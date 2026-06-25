@@ -16,7 +16,7 @@
       <nav class="flex items-center gap-8 text-sm font-medium">
         <a href="/" class="hover:text-neutral-500 hover:scale-105 transition-all duration-300">Главная</a>
         <a href="/blog" class="hover:text-neutral-500 hover:scale-105 transition-all duration-300">Блог</a>
-        <a href="[https://t.me/connections_psychologist](https://t.me/connections_psychologist)" target="_blank" rel="noopener noreferrer" 
+        <a href="https://t.me/about_the_connections" target="_blank" rel="noopener noreferrer" 
            class="bg-neutral-950 text-white px-4 py-1.5 rounded-full text-xs hover:bg-neutral-800 hover:scale-110 transition-all duration-300">
           Telegram Канал
         </a>

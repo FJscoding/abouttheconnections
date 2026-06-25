@@ -44,7 +44,7 @@
     <p class="text-neutral-500 text-sm mb-6 max-w-md mx-auto">
       Каждая ситуация уникальна. Вы всегда можете написать мне напрямую в Telegram, задать анонимный вопрос или записаться на глубокую разбор-консультацию.
     </p>
-    <a href="https://t.me/connections_psychologist" target="_blank"
+    <a href="https://t.me/AYeskov" target="_blank"
        class="inline-flex items-center justify-center bg-neutral-950 text-white px-6 py-3 rounded-xl font-medium text-xs hover:bg-neutral-800 hover:scale-105 transition-all duration-300">
       Написать в Telegram
     </a>
