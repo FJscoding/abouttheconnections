@@ -1,14 +1,80 @@
 <script>
-  // Фото автора. Мы используем красивую заглушку-силуэт в минималистичном стиле,
-  // которую клиент сможет легко заменить на свое реальное фото.
+  // Массив ваших квалификаций и путей к картинкам
+  const qualifications = [
+    {
+      id: 'higher',
+      icon: '🎓',
+      title: 'Высшее профильное образование',
+      description: 'Детская и семейная психология, коррекционная педагогика.',
+      tag: 'Проверено экспертами',
+      images: ['/images/diplomas/higher/uni diploma.jpg'] 
+    },
+    {
+      id: 'early',
+      icon: '🧸',
+      title: 'Раннее вмешательство',
+      description: 'Курсы по диагностике и помощи детям раннего возраста (от 0 до 3 лет).',
+      tag: 'Сертифицировано',
+      images: ['/images/diplomas/early/early certificate 1.png', '/images/diplomas/early/early certificate 2.png', '/images/diplomas/early/early certificate 3.png']
+    },
+    {
+      id: 'behavior',
+      icon: '🤝',
+      title: 'Поведенческая терапия',
+      description: 'Современные методики работы с ненормативным детским развитием.',
+      tag: 'Сертифицировано',
+      images: ['/images/diplomas/behavior/beh certificate.jpg']
+    }
+  ];
+
+  // Руны Svelte 5 для управления галереей
+  let activeGallery = $state(null);
+  let currentIndex = $state(0);
+
+  function openCategory(images) {
+    if (images && images.length > 0) {
+      activeGallery = images;
+      currentIndex = 0;
+    }
+  }
+
+  function closeGallery() {
+    activeGallery = null;
+  }
+
+  function nextImage(e) {
+    e.stopPropagation();
+    if (currentIndex < activeGallery.length - 1) {
+      currentIndex++;
+    } else {
+      currentIndex = 0;
+    }
+  }
+
+  function prevImage(e) {
+    e.stopPropagation();
+    if (currentIndex > 0) {
+      currentIndex--;
+    } else {
+      currentIndex = activeGallery.length - 1;
+    }
+  }
+
+  function handleKeydown(e) {
+    if (!activeGallery) return;
+    if (e.key === 'Escape') closeGallery();
+    if (e.key === 'ArrowRight') nextImage(e);
+    if (e.key === 'ArrowLeft') prevImage(e);
+  }
 </script>
+
+<svelte:window onkeydown={handleKeydown} />
 
 <svelte:head>
   <title>Детский психолог — На связи | Онлайн & Белград</title>
   <meta name="description" content="Помогаю родителям глубоко понять своих детей. Специализируюсь на ранней помощи и работе с особым детством." />
 </svelte:head>
 
-<!-- Секция 1: Главный баннер (Первое впечатление) -->
 <section class="max-w-5xl mx-auto px-6 py-16 md:py-24 grid md:grid-cols-12 gap-12 items-center">
   <div class="md:col-span-7 space-y-6">
     <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-neutral-900 leading-tight">
@@ -29,10 +95,8 @@
     </div>
   </div>
   
-  <!-- Заглушка под фото автора -->
   <div class="md:col-span-5 flex justify-center">
     <div class="relative w-72 h-96 bg-neutral-50 border-2 border-neutral-150 rounded-2xl overflow-hidden shadow-inner flex flex-col items-center justify-center text-center p-6 hover:scale-105 transition-transform duration-500 group">
-      <!-- Имитация рамки для фото -->
       <div class="absolute inset-4 border border-dashed border-neutral-300 rounded-lg flex flex-col items-center justify-center bg-white p-4">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-16 h-16 text-neutral-300 mb-2 group-hover:scale-110 transition-transform duration-300">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
@@ -44,7 +108,6 @@
   </div>
 </section>
 
-<!-- Секция 2: Сфера компетенций -->
 <section class="bg-neutral-50 py-20 border-y border-neutral-100 transition-all duration-300">
   <div class="max-w-5xl mx-auto px-6">
     <div class="max-w-2xl mb-12">
@@ -82,7 +145,6 @@
   </div>
 </section>
 
-<!-- Секция 3: СТОП-ТЕМЫ -->
 <section class="max-w-5xl mx-auto px-6 py-20">
   <div class="bg-neutral-950 text-white rounded-3xl p-8 md:p-12 grid md:grid-cols-12 gap-8 items-center transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl">
     <div class="md:col-span-5">
@@ -117,7 +179,6 @@
   </div>
 </section>
 
-<!-- Секция 4: Отзывы -->
 <section class="bg-neutral-50 py-20 border-t border-neutral-100 transition-all duration-300">
   <div class="max-w-5xl mx-auto px-6">
     <div class="text-center max-w-xl mx-auto mb-16">
@@ -143,7 +204,6 @@
   </div>
 </section>
 
-<!-- Секция 5: Дипломы -->
 <section class="max-w-5xl mx-auto px-6 py-20">
   <div class="text-center max-w-xl mx-auto mb-16">
     <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-neutral-900 mb-2">Образование и квалификация</h2>
@@ -151,37 +211,70 @@
   </div>
   
   <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-    <div class="bg-white border border-neutral-150 rounded-2xl p-6 text-center shadow-sm hover:scale-105 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-56 group">
-      <div class="w-12 h-12 rounded-full bg-neutral-100 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-        🎓
-      </div>
-      <div>
-        <h3 class="font-bold text-neutral-900 text-sm mb-1">Высшее профильное образование</h3>
-        <p class="text-xs text-neutral-400">Детская и семейная психология, коррекционная педагогика.</p>
-      </div>
-      <div class="text-[10px] text-neutral-300 mt-4 border-t border-neutral-100 pt-2">Проверено экспертами</div>
-    </div>
-
-    <div class="bg-white border border-neutral-150 rounded-2xl p-6 text-center shadow-sm hover:scale-105 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-56 group">
-      <div class="w-12 h-12 rounded-full bg-neutral-100 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-        🧸
-      </div>
-      <div>
-        <h3 class="font-bold text-neutral-900 text-sm mb-1">Раннее вмешательство</h3>
-        <p class="text-xs text-neutral-400">Курсы по диагностике и помощи детям раннего возраста (от 0 до 3 лет).</p>
-      </div>
-      <div class="text-[10px] text-neutral-300 mt-4 border-t border-neutral-100 pt-2">Сертифицировано</div>
-    </div>
-
-    <div class="bg-white border border-neutral-150 rounded-2xl p-6 text-center shadow-sm hover:scale-105 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-56 group">
-      <div class="w-12 h-12 rounded-full bg-neutral-100 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-        🤝
-      </div>
-      <div>
-        <h3 class="font-bold text-neutral-900 text-sm mb-1">Поведенческая терапия</h3>
-        <p class="text-xs text-neutral-400">Современные методики работы с ненормативным детским развитием.</p>
-      </div>
-      <div class="text-[10px] text-neutral-300 mt-4 border-t border-neutral-100 pt-2">Сертифицировано</div>
-    </div>
+    {#each qualifications as qual}
+      <button 
+        class="bg-white border border-neutral-150 rounded-2xl p-6 text-center shadow-sm hover:scale-105 hover:shadow-lg transition-all duration-300 flex flex-col justify-between h-56 group w-full focus:outline-none"
+        onclick={() => openCategory(qual.images)}
+      >
+        <div class="w-12 h-12 rounded-full bg-neutral-100 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 text-xl">
+          {qual.icon}
+        </div>
+        <div class="flex-grow flex flex-col justify-center">
+          <h3 class="font-bold text-neutral-900 text-sm mb-1">{qual.title}</h3>
+          <p class="text-xs text-neutral-400">{qual.description}</p>
+        </div>
+        <div class="text-[10px] text-neutral-300 mt-4 border-t border-neutral-100 pt-2 w-full text-center">
+          {qual.tag}
+        </div>
+      </button>
+    {/each}
   </div>
 </section>
+
+{#if activeGallery}
+  <div 
+    class="fixed inset-0 bg-black/95 flex items-center justify-center z-[100] p-4"
+    onclick={closeGallery}
+    role="dialog"
+  >
+    <button 
+      class="absolute top-6 right-8 text-white/70 hover:text-white text-sm tracking-widest focus:outline-none transition-colors"
+      onclick={closeGallery}
+    >
+      ЗАКРЫТЬ ✕
+    </button>
+
+    <div class="relative w-full max-w-4xl flex items-center justify-center h-full">
+      {#if activeGallery.length > 1}
+        <button 
+          class="absolute left-0 md:-left-12 p-4 text-white/50 hover:text-white transition-colors text-4xl focus:outline-none"
+          onclick={prevImage}
+        >
+          ‹
+        </button>
+      {/if}
+
+      <img 
+        src={activeGallery[currentIndex]} 
+        alt="Документ об образовании" 
+        class="max-w-full max-h-[85vh] object-contain shadow-2xl rounded-sm"
+        onclick={(e) => e.stopPropagation()} 
+      />
+
+      {#if activeGallery.length > 1}
+        <button 
+          class="absolute right-0 md:-right-12 p-4 text-white/50 hover:text-white transition-colors text-4xl focus:outline-none"
+          onclick={nextImage}
+        >
+          ›
+        </button>
+      {/if}
+
+      {#if activeGallery.length > 1}
+        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/50 text-sm">
+          {currentIndex + 1} / {activeGallery.length}
+        </div>
+      {/if}
+    </div>
+  </div>
+{/if}
