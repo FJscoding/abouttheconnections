@@ -1,6 +1,13 @@
 <script>
+import { slide } from 'svelte/transition';
+
+  // Управление состоянием карточек направлений
+  let show1 = $state(false);
+  let show2 = $state(false);
+  let show3 = $state(false);
   // Массив ваших квалификаций и путей к картинкам
   const qualifications = [
+    
     {
       id: 'higher',
       icon: '🎓',
@@ -113,34 +120,69 @@
     <div class="max-w-2xl mb-12">
       <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-neutral-900 mb-4">Направления работы</h2>
       <p class="text-neutral-600 leading-relaxed">
-        Мой главный фокус — работа через глубокое понимание потребностей ребенка. Я верю, что ключ к изменениям лежит в руках любящих родителей, поэтому первичная терапевтическая работа ведется именно с вами.
+        Я вижу и понимаю потребности ребенка и помогаю понять это родителям. Но это только первый шаг. Второй необходимый шаг – наладить коммуникацию и совместную деятельность взрослых и ребенка.
       </p>
     </div>
     
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white p-8 rounded-2xl border border-neutral-100 hover:scale-105 hover:shadow-lg transition-all duration-300">
-        <div class="w-10 h-10 rounded-full bg-neutral-900 text-white flex items-center justify-center font-bold text-sm mb-6">01</div>
-        <h3 class="text-lg font-bold text-neutral-900 mb-2">Особое детство</h3>
-        <p class="text-sm text-neutral-500 leading-relaxed">
-          Профессиональное сопровождение семей с детьми с любыми вариантами ненормативного развития. Мягкая адаптация, развитие компенсаторных механизмов нервной системы.
-        </p>
-      </div>
+    <div class="grid md:grid-cols-3 gap-8 items-start">
+      
+      <!-- Карточка 01 -->
+      <button 
+        class="bg-white p-8 rounded-2xl border border-neutral-100 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 text-left group w-full cursor-pointer flex flex-col focus:outline-none"
+        onclick={() => show1 = !show1}
+      >
+        <div class="w-10 h-10 rounded-full bg-neutral-900 text-white flex items-center justify-center font-bold text-sm mb-6 group-hover:scale-110 transition-transform duration-300">01</div>
+        <div class="flex justify-between items-center w-full mb-2">
+          <h3 class="text-lg font-bold text-neutral-900">Особое детство</h3>
+          <span class="text-neutral-400 text-sm transition-transform duration-300 {show1 ? 'rotate-180' : ''}">▼</span>
+        </div>
+        {#if show1}
+          <div transition:slide={{ duration: 300 }} class="mt-4 w-full">
+            <p class="text-sm text-neutral-500 leading-relaxed">
+              Всегда работал с детьми и хорошо разбираюсь в развитии (особом и типичном), являюсь специалистом по работе с детьми с РАС и другими нарушениями развития. Особый тип развития – беда неожиданная, тяжелая. Никто не должен оставаться один в беде!
+            </p>
+          </div>
+        {/if}
+      </button>
 
-      <div class="bg-white p-8 rounded-2xl border border-neutral-100 hover:scale-105 hover:shadow-lg transition-all duration-300">
-        <div class="w-10 h-10 rounded-full bg-neutral-900 text-white flex items-center justify-center font-bold text-sm mb-6">02</div>
-        <h3 class="text-lg font-bold text-neutral-900 mb-2">Раннее детство</h3>
-        <p class="text-sm text-neutral-500 leading-relaxed">
-          Работа с детьми от нескольких месяцев жизни. Ранняя диагностика нарушений контакта, задержек развития, помощь в выстраивании надежной привязанности.
-        </p>
-      </div>
+      <!-- Карточка 02 -->
+      <button 
+        class="bg-white p-8 rounded-2xl border border-neutral-100 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 text-left group w-full cursor-pointer flex flex-col focus:outline-none"
+        onclick={() => show2 = !show2}
+      >
+        <div class="w-10 h-10 rounded-full bg-neutral-900 text-white flex items-center justify-center font-bold text-sm mb-6 group-hover:scale-110 transition-transform duration-300">02</div>
+        <div class="flex justify-between items-center w-full mb-2">
+          <h3 class="text-lg font-bold text-neutral-900">Раннее детство</h3>
+          <span class="text-neutral-400 text-sm transition-transform duration-300 {show2 ? 'rotate-180' : ''}">▼</span>
+        </div>
+        {#if show2}
+          <div transition:slide={{ duration: 300 }} class="mt-4 w-full">
+            <p class="text-sm text-neutral-500 leading-relaxed">
+              В раннем вмешательстве родители - единственные люди, которые нужны ребенку рядом. Несколько месяцев сотрудничества в формате коучинга могут радикально изменить ситуацию к лучшему, во всяком случае будут значительные успехи в общении с ребенком. Я использую методики ESDM подхода, деятельностный подход Леонтьева, идею о зоне ближайшего развития Выгодского.
+            </p>
+          </div>
+        {/if}
+      </button>
 
-      <div class="bg-white p-8 rounded-2xl border border-neutral-100 hover:scale-105 hover:shadow-lg transition-all duration-300">
-        <div class="w-10 h-10 rounded-full bg-neutral-900 text-white flex items-center justify-center font-bold text-sm mb-6">03</div>
-        <h3 class="text-lg font-bold text-neutral-900 mb-2">Консультации родителей</h3>
-        <p class="text-sm text-neutral-500 leading-relaxed">
-          Разбор системных семейных сложностей, страхов, родительского выгорания. Помогаю вам стать главным и самым надежным терапевтом для собственного ребенка.
-        </p>
-      </div>
+      <!-- Карточка 03 -->
+      <button 
+        class="bg-white p-8 rounded-2xl border border-neutral-100 hover:scale-[1.03] hover:shadow-lg transition-all duration-300 text-left group w-full cursor-pointer flex flex-col focus:outline-none"
+        onclick={() => show3 = !show3}
+      >
+        <div class="w-10 h-10 rounded-full bg-neutral-900 text-white flex items-center justify-center font-bold text-sm mb-6 group-hover:scale-110 transition-transform duration-300">03</div>
+        <div class="flex justify-between items-center w-full mb-2">
+          <h3 class="text-lg font-bold text-neutral-900">Консультации родителей</h3>
+          <span class="text-neutral-400 text-sm transition-transform duration-300 {show3 ? 'rotate-180' : ''}">▼</span>
+        </div>
+        {#if show3}
+          <div transition:slide={{ duration: 300 }} class="mt-4 w-full">
+            <p class="text-sm text-neutral-500 leading-relaxed">
+              Опытный, внимательный взгляд со стороны всегда полезен, чтобы принять решения, разработать план, справиться с гнетущей ситуацией. Совмещая эмоциональную поддержку с помощью в анализе собственного опыта родителей, я могу быть полезен для работы с самыми разными запросами.
+            </p>
+          </div>
+        {/if}
+      </button>
+
     </div>
   </div>
 </section>
@@ -207,7 +249,7 @@
 <section class="max-w-5xl mx-auto px-6 py-20">
   <div class="text-center max-w-xl mx-auto mb-16">
     <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-neutral-900 mb-2">Образование и квалификация</h2>
-    <p class="text-sm text-neutral-500">Регулярное подтверждение квалификации и супервизии.</p>
+    <p class="text-sm text-neutral-500">Я продолжаю учиться через самообразование, участие в профессиональных сообществах и супервизиях по запросу. </p>
   </div>
   
   <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
